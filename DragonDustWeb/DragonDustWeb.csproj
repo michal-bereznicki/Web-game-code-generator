@@ -161,6 +161,10 @@
     <Compile Include="Migrations\201901271433262_InitialModel.Designer.cs">
       <DependentUpon>201901271433262_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901271448570_PopulateOrderTypes.cs" />
+    <Compile Include="Migrations\201901271448570_PopulateOrderTypes.Designer.cs">
+      <DependentUpon>201901271448570_PopulateOrderTypes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Order.cs" />
@@ -230,6 +234,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901271433262_InitialModel.resx">
       <DependentUpon>201901271433262_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901271448570_PopulateOrderTypes.resx">
+      <DependentUpon>201901271448570_PopulateOrderTypes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
