@@ -1,8 +1,10 @@
-﻿
+﻿@model DragonDustWeb.ViewModels.GameDisplayViewModel
+
 @{
     ViewBag.Title = "GameDisplay";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>GameDisplay</h2>
+<h2>@Model.TitleOneliner</h2>
+<h2>@Model.Description</h2>
 
