@@ -1,11 +1,21 @@
-﻿
+﻿@model DragonDustWeb.ViewModels.CodesUploadViewModel
 
 @{
     ViewBag.Title = "CodeUpload";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h1>Upload game codes</h1>
+
 @using(Html.BeginForm("UploadCodes","GameCode"))
 {
+    <div class="form-group">
 
+        @Html.DropDownListFor(m => m.GameIds,new SelectList(Model.GameNames),"Select game name",new { @class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CodesExpireDate)
+        @Html.TextBoxFor(m => m.CodesExpireDate)
+    </div>
 }
