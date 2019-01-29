@@ -175,9 +175,14 @@
     <Compile Include="Migrations\201901291537559_PopulateGames.Designer.cs">
       <DependentUpon>201901291537559_PopulateGames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901291602511_GameCodeModel.cs" />
+    <Compile Include="Migrations\201901291602511_GameCodeModel.Designer.cs">
+      <DependentUpon>201901291602511_GameCodeModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\GameCode.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderType.cs" />
     <Compile Include="Models\User.cs" />
@@ -262,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901291537559_PopulateGames.resx">
       <DependentUpon>201901291537559_PopulateGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901291602511_GameCodeModel.resx">
+      <DependentUpon>201901291602511_GameCodeModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

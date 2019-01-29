@@ -12,6 +12,7 @@ namespace DragonDustWeb.Models
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderType> OrderTypes { get; set; }
         public DbSet<Game> Games { get; set; }
+        public DbSet<GameCode> GameCodes { get; set; }
 
         public ApplicationDbContext()
         {
