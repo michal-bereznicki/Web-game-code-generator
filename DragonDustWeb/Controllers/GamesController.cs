@@ -1,4 +1,5 @@
-﻿using DragonDustWeb.ViewModels;
+﻿using DragonDustWeb.Models;
+using DragonDustWeb.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,12 @@ namespace DragonDustWeb.Controllers
 {
     public class GamesController : Controller
     {
+        ApplicationDbContext dbContext;
+        public GamesController()
+        {
+            dbContext = new ApplicationDbContext();
+        }
+
         // GET: Games
         public ActionResult Index()
         {
@@ -21,7 +28,7 @@ namespace DragonDustWeb.Controllers
             {
                 TitleOneliner = "Solve unique riddles in Ancient Tomb!",
                 Description = "sad",
-                GooglePlayLink = "https://play.google.com/store/apps/details?id=com.DragonDustGames.labyrinth.adventure.puzzle.riddle.ancient.tomb"
+                GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.AncientTombAdventureId).GooglePlayPageLink
             };
             return View("GameDisplay",viewModel);
         }
@@ -32,7 +39,7 @@ namespace DragonDustWeb.Controllers
             {
                 TitleOneliner = "Have fun playing realistic music instruments!",
                 Description = "opis 2",
-                GooglePlayLink = "https://play.google.com/store/apps/details?id=com.dragondustgames.kids.music.learn.composer.KidsMusicComposerFunLearn"
+                GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.KidsMusicComposerId).GooglePlayPageLink
             };
             return View("GameDisplay", viewModel);
         }
