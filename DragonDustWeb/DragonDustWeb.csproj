@@ -220,6 +220,7 @@
     <Content Include="Views\Games\Index.cshtml" />
     <Content Include="Views\Games\GameDisplay.cshtml" />
     <Content Include="Views\GameCode\GameSelection.cshtml" />
+    <Content Include="Views\GameCode\CodeUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
