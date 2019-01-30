@@ -188,6 +188,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CodesUploadViewModel.cs" />
+    <Compile Include="ViewModels\EmailViewModel.cs" />
     <Compile Include="ViewModels\GameDisplayViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +237,7 @@
     <Content Include="Views\Games\GameDisplay.cshtml" />
     <Content Include="Views\GameCode\GameSelection.cshtml" />
     <Content Include="Views\GameCode\CodeUpload.cshtml" />
+    <Content Include="Views\GameCode\EmailRequest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

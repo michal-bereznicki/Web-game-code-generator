@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "EmailRequest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Please enter your e-mail.</h2>
+<h3 align="center">Your code will be sent to this adress.</h3>
+
+@using(Html.BeginForm("SendCode", "GameCode"))
+{
+
+
+    <button class="btn btn-primary">Submit</button>
+}
+
