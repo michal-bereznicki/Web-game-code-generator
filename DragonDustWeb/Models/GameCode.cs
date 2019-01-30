@@ -11,6 +11,7 @@ namespace DragonDustWeb.Models
         public int Id { get; set; }
         public int GameId { get; set; }
 
+        public string Code { get; set; }
         [Required]
         public bool Used { get; set; }
         [Required]
