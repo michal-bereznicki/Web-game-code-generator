@@ -8,10 +8,12 @@
 <h2 align="center">Please enter your e-mail.</h2>
 <h3 align="center">Your code will be sent to this adress.</h3>
 
-@using(Html.BeginForm("SendCode", "GameCode"))
+@using(Html.BeginForm("SubmitEmail", "GameCode"))
 {
-    @Html.TextBoxFor(m => Model.Email);
-
-    <button class="btn btn-primary">Submit</button>
+    <div  class="form-group" align="center">
+        @Html.TextBoxFor(m => Model.Email, new { @class="form-control"})
+    </div>
+    @Html.HiddenFor(m => Model.RequestedGameId)
+    <button type="submit" class="btn btn-primary">Submit</button>
 }
 

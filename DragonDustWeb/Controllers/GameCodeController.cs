@@ -28,10 +28,10 @@ namespace DragonDustWeb.Controllers
             if(game == null)
                 return new HttpNotFoundResult();
 
-            var code = GetCode(game);
+            /*var code = GetCode(game);
             if(code == null)
                 return View("CodeUnavailable");
-
+                */
             var viewModel = new EmailViewModel
             {
                 RequestedGameId = gameId
@@ -40,15 +40,17 @@ namespace DragonDustWeb.Controllers
             return View("EmailRequest", viewModel);
         }
 
-        public ActionResult SendCode(int gameId)
+        [HttpPost]
+        public ActionResult SubmitEmail(EmailViewModel model)
         {
-            var game = dbContext.Games.SingleOrDefault(g => g.Id == gameId);
+            var game = dbContext.Games.SingleOrDefault(g => g.Id == model.RequestedGameId);
             if(game == null)
                 return new HttpNotFoundResult();
 
-            var code = GetCode(game);
+            /*var code = GetCode(game);
             if(code == null)
                 return View("CodeUnavailable");
+                */
 
             EmailSender.SendGameCode("email", "code");
 
