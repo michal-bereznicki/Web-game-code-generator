@@ -28,8 +28,9 @@ namespace DragonDustWeb.Controllers
             if(game == null)
                 return new HttpNotFoundResult();
 
-            //if(!CodeAvailable(game))
-            //    return View("CodeUnavailable");
+            var code = GetCode(game);
+            if(code == null)
+                return View("CodeUnavailable");
 
             var viewModel = new EmailViewModel
             {
@@ -45,17 +46,18 @@ namespace DragonDustWeb.Controllers
             if(game == null)
                 return new HttpNotFoundResult();
 
-            //if(!CodeAvailable(game))
-            //    return View("CodeUnavailable");
+            var code = GetCode(game);
+            if(code == null)
+                return View("CodeUnavailable");
 
             EmailSender.SendGameCode("email", "code");
 
             return View("EmailSentConfirmation");
         }
 
-        bool CodeAvailable(Game game)
+        GameCode GetCode(Game game)
         {
-            return dbContext.GameCodes.Any(c =>
+            return dbContext.GameCodes.FirstOrDefault(c =>
                 c.GameId == game.Id
                 && c.Used == false
                 && c.ExpirationDate > DateTime.Now
