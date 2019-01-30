@@ -1,4 +1,5 @@
 ﻿using DragonDustWeb.Models;
+using DragonDustWeb.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +22,35 @@ namespace DragonDustWeb.Controllers
             return View("GameSelection");
         }
 
-        public ActionResult GetCode(int gameId)
+        public ActionResult RequestCode(int gameId)
         {
             var game = dbContext.Games.SingleOrDefault(g => g.Id == gameId);
             if(game == null)
                 return new HttpNotFoundResult();
 
-            if(!CodeAvailable(game))
-                return View("CodeUnavailable");
+            //if(!CodeAvailable(game))
+            //    return View("CodeUnavailable");
 
-            return View("EmailRequest");
+            var viewModel = new EmailViewModel
+            {
+                RequestedGameId = gameId
+            };
+
+            return View("EmailRequest", viewModel);
+        }
+
+        public ActionResult SendCode(int gameId)
+        {
+            var game = dbContext.Games.SingleOrDefault(g => g.Id == gameId);
+            if(game == null)
+                return new HttpNotFoundResult();
+
+            //if(!CodeAvailable(game))
+            //    return View("CodeUnavailable");
+
+            EmailSender.SendGameCode("email", "code");
+
+            return View("EmailSentConfirmation");
         }
 
         bool CodeAvailable(Game game)
