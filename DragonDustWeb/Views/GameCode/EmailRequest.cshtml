@@ -8,12 +8,19 @@
 <h2 align="center">Please enter your e-mail.</h2>
 <h3 align="center">Your code will be sent to this adress.</h3>
 
-@using(Html.BeginForm("SubmitEmail", "GameCode"))
-{
-    <div  class="form-group" align="center">
-        @Html.TextBoxFor(m => Model.Email, new { @class="form-control"})
-    </div>
-    @Html.HiddenFor(m => Model.RequestedGameId)
-    <button type="submit" class="btn btn-primary">Submit</button>
-}
+<div align="center">
+    @using(Html.BeginForm("SubmitEmail", "GameCode"))
+    {
+        <div  class="form-group">
+            @Html.ValidationMessageFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class="form-control"})
+        </div>
+        @Html.HiddenFor(m => m.RequestedGameId)
+        <button type="submit" class="btn btn-primary">Submit</button>
+    }
+</div>
 
+@section scripts 
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

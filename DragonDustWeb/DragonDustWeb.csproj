@@ -243,6 +243,7 @@
     <Content Include="Views\GameCode\GameSelection.cshtml" />
     <Content Include="Views\GameCode\CodeUpload.cshtml" />
     <Content Include="Views\GameCode\EmailRequest.cshtml" />
+    <Content Include="Views\GameCode\EmailSentConfirmation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

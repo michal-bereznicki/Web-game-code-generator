@@ -28,3 +28,7 @@ textarea {
     width: 50%;
     padding: 15px;
 }
+
+.field-validation-error {
+    color: red;
+}

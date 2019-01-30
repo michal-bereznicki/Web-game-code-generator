@@ -43,16 +43,20 @@ namespace DragonDustWeb.Controllers
         [HttpPost]
         public ActionResult SubmitEmail(EmailViewModel model)
         {
+            if(!ModelState.IsValid)
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+
             var game = dbContext.Games.SingleOrDefault(g => g.Id == model.RequestedGameId);
             if(game == null)
                 return new HttpNotFoundResult();
 
-            /*var code = GetCode(game);
-            if(code == null)
+            var code = GetCode(game);
+            /*if(code == null)
                 return View("CodeUnavailable");
                 */
 
-            EmailSender.SendGameCode("email", "code");
+            //EmailSender.SendGameCode(model.Email, code.Code);
+            EmailSender.SendGameCode(model.Email, "kod123");
 
             return View("EmailSentConfirmation");
         }
