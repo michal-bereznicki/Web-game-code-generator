@@ -32,3 +32,11 @@ textarea {
 .field-validation-error {
     color: red;
 }
+
+.form-group-lg {
+    padding: 20px;
+}
+
+.form-group-lg .form-control {
+    width:300px;
+}

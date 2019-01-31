@@ -9,18 +9,19 @@
 <h3 align="center">Your code will be sent to this adress.</h3>
 
 <div align="center">
-    @using(Html.BeginForm("SubmitEmail", "GameCode"))
+    @using(Html.BeginForm("SubmitEmail", "GameCode", FormMethod.Post, new { @class = "form-inline" }))
     {
-        <div  class="form-group">
-            @Html.ValidationMessageFor(m => m.Email)
-            @Html.TextBoxFor(m => m.Email, new { @class="form-control"})
+        @Html.ValidationMessageFor(m => m.Email)
+        <div class="form-group-lg">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email adress" })
+
+            @Html.HiddenFor(m => m.RequestedGameId)
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
         </div>
-        @Html.HiddenFor(m => m.RequestedGameId)
-        <button type="submit" class="btn btn-primary">Submit</button>
     }
 </div>
 
-@section scripts 
+@section scripts
 {
     @Scripts.Render("~/bundles/jqueryval");
 }
