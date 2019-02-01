@@ -183,6 +183,10 @@
     <Compile Include="Migrations\201901301319220_CodeFieldAddedToGameCode.Designer.cs">
       <DependentUpon>201901301319220_CodeFieldAddedToGameCode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902011035209_GameIdAddedToOrder.cs" />
+    <Compile Include="Migrations\201902011035209_GameIdAddedToOrder.Designer.cs">
+      <DependentUpon>201902011035209_GameIdAddedToOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\EmailSender.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901301319220_CodeFieldAddedToGameCode.resx">
       <DependentUpon>201901301319220_CodeFieldAddedToGameCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902011035209_GameIdAddedToOrder.resx">
+      <DependentUpon>201902011035209_GameIdAddedToOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

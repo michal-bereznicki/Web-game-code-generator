@@ -13,6 +13,8 @@ namespace DragonDustWeb.Models
         [Required]
         public int UserId { get; set; }
 
+        public int GameId { get; set; }
+
         public int OrderType { get; set; }
         [Required]
         public byte OrderTypeId { get; set; }
