@@ -41,6 +41,7 @@ namespace DragonDustWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SubmitEmail(EmailViewModel model)
         {
             if(!ModelState.IsValid)

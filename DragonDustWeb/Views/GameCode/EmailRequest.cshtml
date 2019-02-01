@@ -16,6 +16,7 @@
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email adress" })
 
             @Html.HiddenFor(m => m.RequestedGameId)
+            @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-lg btn-primary">Submit</button>
         </div>
     }
