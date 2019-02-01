@@ -81,7 +81,6 @@ namespace DragonDustWeb.Controllers
             dbContext.Orders.Add(order);
             dbContext.SaveChanges();
 
-
             return View("EmailSentConfirmation");
         }
 
