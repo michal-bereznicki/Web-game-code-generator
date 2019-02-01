@@ -9,5 +9,7 @@ namespace DragonDustWeb.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+
+        public static readonly int FreePromoCodeByEmailId = 1;
     }
 }
