@@ -55,8 +55,32 @@ namespace DragonDustWeb.Controllers
                 return View("CodeUnavailable");
                 */
 
+            var user = dbContext.Users.SingleOrDefault(u => u.Email.Equals(model.Email));
+            if(user == null)
+            {
+                user = new User
+                {
+                    Email = model.Email
+                };
+                dbContext.Users.Add(user);
+                dbContext.SaveChanges();
+            }
+            else if(dbContext.Orders.Any(o => o.UserId == user.Id && o.GameId == game.Id))
+                return View("GameCodeAlreadySent");
+
             //EmailSender.SendGameCode(model.Email, code.Code);
             EmailSender.SendGameCode(model.Email, "kod123");
+
+            var order = new Order
+            {
+                UserId = user.Id,
+                GameId = game.Id,
+                OrderTypeId = OrderType.FreePromoCodeByEmailId
+            };
+
+            dbContext.Orders.Add(order);
+            dbContext.SaveChanges();
+
 
             return View("EmailSentConfirmation");
         }
