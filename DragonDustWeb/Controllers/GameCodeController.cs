@@ -67,7 +67,7 @@ namespace DragonDustWeb.Controllers
                 dbContext.SaveChanges();
             }
             else if(dbContext.Orders.Any(o => o.UserId == user.Id && o.GameId == game.Id))
-                return View("GameCodeAlreadySent");
+                return GetFeedbackView("Game code was already sent to this email adress.", FeedbackMessageType.Error);
 
             //EmailSender.SendGameCode(model.Email, code.Code);
             EmailSender.SendGameCode(model.Email, "kod123");
@@ -82,7 +82,7 @@ namespace DragonDustWeb.Controllers
             dbContext.Orders.Add(order);
             dbContext.SaveChanges();
 
-            return View("EmailSentConfirmation");
+            return GetFeedbackView("Email sent successfully!", FeedbackMessageType.Confirmation);
         }
 
         GameCode GetCode(Game game)
@@ -92,6 +92,16 @@ namespace DragonDustWeb.Controllers
                 && c.Used == false
                 && c.ExpirationDate > DateTime.Now
             );
+        }
+
+        ViewResult GetFeedbackView(string msg, FeedbackMessageType messageType)
+        {
+            var viewModel = new FeedbackMessageViewModel
+            {
+                Message = "msg",
+                MessageType = messageType
+            };
+            return View("FeedbackMessage", viewModel);
         }
     }
 }

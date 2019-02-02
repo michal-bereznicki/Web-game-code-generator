@@ -1,0 +1,25 @@
+﻿@model DragonDustWeb.ViewModels.FeedbackMessageViewModel
+@{
+    ViewBag.Title = "FeedbackMessage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1 id="msg" align="center">@Model.Message</h1>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            @if(Model.MessageType == DragonDustWeb.ViewModels.FeedbackMessageType.Error)
+            {
+                <text>$("#msg").css("color", "red");</text>
+            }
+            else if(Model.MessageType == DragonDustWeb.ViewModels.FeedbackMessageType.Confirmation)
+            {
+                <text>$("#msg").css("color", "green");</text>
+            }
+        });
+    </script>
+}
