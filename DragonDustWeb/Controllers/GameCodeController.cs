@@ -40,6 +40,17 @@ namespace DragonDustWeb.Controllers
             return View("EmailRequest", viewModel);
         }
 
+        public ActionResult Upload()
+        {
+            var viewModel = new CodesUploadViewModel
+            {
+                GameIds = dbContext.Games.Select(g => g.Id).ToList(),
+                GameNames = dbContext.Games.Select(g => g.Name).ToList()
+            };
+
+            return View("CodeUpload", viewModel);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SubmitEmail(EmailViewModel model)
