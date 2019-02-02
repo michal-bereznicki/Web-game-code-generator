@@ -11,5 +11,6 @@ namespace DragonDustWeb.ViewModels
         public IEnumerable GameIds { get; set; }
         public IEnumerable GameNames { get; set; }
         public DateTime CodesExpireDate { get; set; }
+        public HttpPostedFileBase File { get; set; }
     }
 }

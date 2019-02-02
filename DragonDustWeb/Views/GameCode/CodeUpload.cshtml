@@ -7,21 +7,22 @@
 
 <h1>Upload game codes</h1>
 
-@using(Html.BeginForm("UploadCodes","GameCode"))
+@using(Html.BeginForm("UploadCodes","GameCode", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="form-group">
 
-        @Html.DropDownListFor(m => m.GameIds,new SelectList(Model.GameNames),"Select game name",new { @class = "form-control"})
+        @Html.DropDownListFor(m => Model.GameIds,new SelectList(Model.GameNames),"Select game name",new { @class = "form-control"})
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.CodesExpireDate)
-        @Html.TextBoxFor(m => m.CodesExpireDate)
+        @Html.LabelFor(m => Model.CodesExpireDate)
+        @Html.TextBoxFor(m => Model.CodesExpireDate, new { @class = "form-control"})
     </div>
 
     <div class="form-group">
-        @Html.TextBox("file","",new { type = "file"})
+        @Html.TextBoxFor(m => Model.File, new { type = "file", name="File"})
     </div>
 
-    <buttton type="submit" class="btn btn-primary">Submit</buttton>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
 }
