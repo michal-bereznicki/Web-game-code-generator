@@ -54,13 +54,8 @@ namespace DragonDustWeb.Controllers
         [HttpPost]
         public ActionResult UploadCodes(CodesUploadViewModel model)
         {
-            var viewModel = new CodesUploadViewModel
-            {
-                GameIds = dbContext.Games.Select(g => g.Id).ToList(),
-                GameNames = dbContext.Games.Select(g => g.Name).ToList()
-            };
-
-            return View("CodeUpload", viewModel);
+            //TODO
+            return new HttpStatusCodeResult(System.Net.HttpStatusCode.NoContent);
         }
 
         [HttpPost]

@@ -9,7 +9,7 @@ namespace DragonDustWeb.ViewModels
     {
         public string TitleOneliner { get; set; }
         public string Description { get; set; }
-
+        public string ContentFolderName { get; set; }
         public string GooglePlayLink { get; set; }
     }
 }

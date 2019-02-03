@@ -5,10 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.TitleOneliner</h2>
-<h2>@Model.Description</h2>
+<hr />
+<div align="center">
 
-<a href="@Model.GooglePlayLink&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
-    <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="220" height="auto" />
-</a>
+    <img src="~/Content/Images/@Model.ContentFolderName/titleGraphic.png" width="100%" />
+</div>
+<hr />
+<div class="row">
+    <div class="column">
+        <img src="~/Content/Images/@Model.ContentFolderName/phone.png" width="100%" />
+    </div>
+    <div class="column">
+        <div align="center">
+        <h2>@Model.TitleOneliner</h2>
+        <h2>@Model.Description</h2>
+        <a href="@Model.GooglePlayLink&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+            <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width="220" height="auto" />
+        </a>
+        </div>
+    </div>
+</div>
+<hr style="padding: 100px"/>
+
+
+
+
 

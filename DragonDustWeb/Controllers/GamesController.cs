@@ -28,7 +28,8 @@ namespace DragonDustWeb.Controllers
             {
                 TitleOneliner = "Solve unique riddles in Ancient Tomb!",
                 Description = "sad",
-                GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.AncientTombAdventureId).GooglePlayPageLink
+                GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.AncientTombAdventureId).GooglePlayPageLink,
+                ContentFolderName = "AncientTombAdventure"
             };
             return View("GameDisplay",viewModel);
         }
@@ -39,7 +40,8 @@ namespace DragonDustWeb.Controllers
             {
                 TitleOneliner = "Have fun playing realistic music instruments!",
                 Description = "opis 2",
-                GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.KidsMusicComposerId).GooglePlayPageLink
+                GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.KidsMusicComposerId).GooglePlayPageLink,
+                ContentFolderName = "KidsMusicComposer"
             };
             return View("GameDisplay", viewModel);
         }
