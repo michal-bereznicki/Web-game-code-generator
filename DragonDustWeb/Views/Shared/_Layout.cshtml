@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.Action("Index","Home")">
-                    <img src="~/Content/Images/logo.png" width="50" >
+                    <img src="~/Content/Images/logoBlackWhite.png" width="50" >
                 </a>
             </div>
             <div class="navbar-collapse collapse" >
@@ -32,6 +32,14 @@
     <div class="container body-content">
         @RenderBody()
     </div>
+    <footer>
+        <a href="@Url.Action("Index","Home")">
+            <img src="~/Content/Images/logoBlackWhite.png" width="100">
+        </a>
+        <p style="color:whitesmoke; padding:0px; font-weight:bold">
+            Dragon Dust Games <br>@DateTime.Now.Year
+        </p>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

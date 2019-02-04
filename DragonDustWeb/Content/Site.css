@@ -1,6 +1,6 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -41,3 +41,20 @@ textarea {
     width:300px;
 }
 
+footer {
+
+    height: 200px;
+
+    width: 100%;
+    background-color: black;
+    text-align: center;
+
+}
+
+footer img {
+    margin: 0px;
+}
+
+.body-content {
+    min-height: calc(100vh - calc(200px + 50px));
+}
