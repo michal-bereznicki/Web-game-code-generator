@@ -58,3 +58,7 @@ footer img {
 .body-content {
     min-height: calc(100vh - calc(200px + 50px));
 }
+
+#msg {
+    padding: 10px;
+}
