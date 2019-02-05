@@ -212,6 +212,7 @@
     <Content Include="Content\Images\KidsMusicComposer\phone.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\AncientTombAdventure\titleGraphic.png" />
+    <Content Include="Content\Images\logoBlackWhite.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

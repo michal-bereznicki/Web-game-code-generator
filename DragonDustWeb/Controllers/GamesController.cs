@@ -27,7 +27,7 @@ namespace DragonDustWeb.Controllers
             var viewModel = new GameDisplayViewModel
             {
                 TitleOneliner = "Solve unique riddles in Ancient Tomb!",
-                Description = "sad",
+                Description = "Explore the labyrinth and find the forgotten treasure.",
                 GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.AncientTombAdventureId).GooglePlayPageLink,
                 ContentFolderName = "AncientTombAdventure"
             };
@@ -39,7 +39,7 @@ namespace DragonDustWeb.Controllers
             var viewModel = new GameDisplayViewModel
             {
                 TitleOneliner = "Have fun playing realistic music instruments!",
-                Description = "opis 2",
+                Description = "Compose and save your own songs.",
                 GooglePlayLink = dbContext.Games.Single(g => g.Id == Game.KidsMusicComposerId).GooglePlayPageLink,
                 ContentFolderName = "KidsMusicComposer"
             };
