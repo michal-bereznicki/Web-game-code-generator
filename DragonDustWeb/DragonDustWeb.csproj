@@ -253,6 +253,7 @@
     <Content Include="Views\GameCode\CodeUpload.cshtml" />
     <Content Include="Views\GameCode\EmailRequest.cshtml" />
     <Content Include="Views\Shared\FeedbackMessage.cshtml" />
+    <Content Include="Views\GameCode\CodeUnavailable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,29 @@
+﻿@model DragonDustWeb.ViewModels.EmailViewModel
+
+@{
+    ViewBag.Title = "CodeUnavailable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<hr/>
+<h2 align="center">Sorry, currently there are no available promo codes for this game.</h2>
+<hr/>
+<h3 align="center">Please leave us your email, so we can get in touch with you when we launch another promotion.</h3>
+
+<div align="center">
+    @using(Html.BeginForm("SubmitEmailNoOrder", "GameCode", FormMethod.Post, new { @class = "form-inline" }))
+    {
+        @Html.ValidationMessageFor(m => m.Email)
+        <div class="form-group-lg">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter Email adress" })
+
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+        </div>
+    }
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval");
+}

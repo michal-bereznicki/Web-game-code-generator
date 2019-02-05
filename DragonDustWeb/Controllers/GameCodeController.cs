@@ -28,10 +28,10 @@ namespace DragonDustWeb.Controllers
             if(game == null)
                 return new HttpNotFoundResult();
 
-            /*var code = GetCode(game);
+            var code = GetCode(game);
             if(code == null)
                 return View("CodeUnavailable");
-                */
+                
             var viewModel = new EmailViewModel
             {
                 RequestedGameId = gameId
@@ -52,6 +52,7 @@ namespace DragonDustWeb.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult UploadCodes(CodesUploadViewModel model)
         {
             //TODO
@@ -70,9 +71,8 @@ namespace DragonDustWeb.Controllers
                 return new HttpNotFoundResult();
 
             var code = GetCode(game);
-            /*if(code == null)
+            if(code == null)
                 return View("CodeUnavailable");
-                */
 
             var user = dbContext.Users.SingleOrDefault(u => u.Email.Equals(model.Email));
             if(user == null)
@@ -87,8 +87,7 @@ namespace DragonDustWeb.Controllers
             else if(dbContext.Orders.Any(o => o.UserId == user.Id && o.GameId == game.Id))
                 return GetFeedbackView("Game code was already sent to this email adress.", FeedbackMessageType.Error);
 
-            //EmailSender.SendGameCode(model.Email, code.Code);
-            EmailSender.SendGameCode(model.Email, "kod123");
+            EmailSender.SendGameCode(model.Email, "testGameCode");
 
             var order = new Order
             {
@@ -101,6 +100,27 @@ namespace DragonDustWeb.Controllers
             dbContext.SaveChanges();
 
             return GetFeedbackView("Email sent successfully!", FeedbackMessageType.Confirmation);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SubmitEmailNoOrder(EmailViewModel model)
+        {
+            if(!ModelState.IsValid)
+                return new HttpStatusCodeResult(System.Net.HttpStatusCode.BadRequest);
+
+            var user = dbContext.Users.SingleOrDefault(u => u.Email.Equals(model.Email));
+            if(user == null)
+            {
+                user = new User
+                {
+                    Email = model.Email
+                };
+                dbContext.Users.Add(user);
+                dbContext.SaveChanges();
+            }
+
+            return GetFeedbackView("Email submitted successfully. Thank you!", FeedbackMessageType.Confirmation);
         }
 
         GameCode GetCode(Game game)
@@ -116,7 +136,7 @@ namespace DragonDustWeb.Controllers
         {
             var viewModel = new FeedbackMessageViewModel
             {
-                Message = "msg",
+                Message = msg,
                 MessageType = messageType
             };
             return View("FeedbackMessage", viewModel);
