@@ -43,7 +43,7 @@ textarea {
 
 footer {
 
-    height: 200px;
+    height: 160px;
 
     width: 100%;
     background-color: black;
@@ -56,7 +56,7 @@ footer img {
 }
 
 .body-content {
-    min-height: calc(100vh - calc(200px + 50px));
+    min-height: calc(100vh - calc(160px + 50px));
 }
 
 #msg {
