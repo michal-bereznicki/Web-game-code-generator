@@ -11,6 +11,7 @@ namespace DragonDustWeb.Controllers
     public class GameCodeController : Controller
     {
         ApplicationDbContext dbContext;
+
         public GameCodeController()
         {
             dbContext = new ApplicationDbContext();
